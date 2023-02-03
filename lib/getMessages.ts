@@ -5,7 +5,7 @@ import writeDataToJson from "./writeJSONFile";
 
 export default async function newMessage(newData: IMessageObject) {
   const pathToFile = path.resolve("lib/messagesData.json");
-  const data: any = await readJSONFile<Promise<IMessageObject[]>>(pathToFile);
+  const data: any = await readJSONFile(pathToFile);
   data.push(newData);
   writeDataToJson(pathToFile, data);
 }

@@ -12,7 +12,7 @@ export async function newInputValue({
   const pathToFile = resolve("lib/averageNumberData.json");
   const currentValue =
     isFloat === true ? parseFloat(numberValue) : parseInt(numberValue);
-  const data: any = await readJSONFile<Promise<number[]>>(pathToFile);
+  const data: any = await readJSONFile(pathToFile);
   if (data.length <= 0) {
     data.push(currentValue);
     writeDataToJson(pathToFile, data);
