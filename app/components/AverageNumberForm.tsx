@@ -17,7 +17,7 @@ export default function AverageNumberForm() {
       isFloat: selectedRadio,
     };
     const JSONdata = JSON.stringify(dataToPost);
-    const endpoint = "http://localhost:3000/api/averagenumber/";
+    const endpoint = `${process.env.VERCEL_URL}/api/averagenumber/`;
     const options = {
       method: "POST",
       headers: {
@@ -32,7 +32,7 @@ export default function AverageNumberForm() {
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="inputNumber" className="mr-2">
         Введите число:
       </label>
@@ -70,11 +70,7 @@ export default function AverageNumberForm() {
           </label>
         </div>
       </fieldset>
-      <button
-        onClick={handleSubmit}
-        type="submit"
-        className="bg-indigo-400"
-      ></button>
+      <button type="submit" className="bg-indigo-400"></button>
     </form>
   );
 }

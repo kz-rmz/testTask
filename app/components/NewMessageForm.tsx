@@ -17,7 +17,7 @@ export default function NewMessageForm() {
       text: text,
     };
     const JSONdata = JSON.stringify(data);
-    const endpoint = "http://localhost:3000/api/newmessage/";
+    const endpoint = `${process.env.VERCEL_URL}/api/newmessage/`;
     const options = {
       method: "POST",
       headers: {
